@@ -1,0 +1,5 @@
+venv/
+__pycache__/
+*.pyc
+chatbot-model.h5
+data.pickle
