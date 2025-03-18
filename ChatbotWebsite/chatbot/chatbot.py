@@ -9,6 +9,7 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout
 from keras.optimizers import Adam
 from keras.models import load_model
+import matplotlib.pyplot as plt
 
 nltk.download("punkt")
 nltk.download("wordnet")
@@ -89,11 +90,33 @@ except:  # create new model if not existed
     model.compile(
         loss="categorical_crossentropy", optimizer=adam, metrics=["accuracy"]
     )  # compile model
-    model.fit(
-        training, output, epochs=300, batch_size=10, verbose=1
-    )  # fit model (train)
+
+     # Train the model and capture the history
+    history = model.fit(training, output, epochs=1000, batch_size=10, verbose=1)  # fit model (train)
     model.save("chatbot-model.h5")  # save model
     print("Done")
+
+    # Print performance analysis
+
+
+    # Plot training & validation accuracy values
+    plt.figure(figsize=(12, 4))
+    plt.subplot(1, 2, 1)
+    plt.plot(history.history['accuracy'])
+    plt.title('Model accuracy')
+    plt.ylabel('Accuracy')
+    plt.xlabel('Epoch')
+    plt.legend(['Train'], loc='upper left')
+
+    # Plot training & validation loss values
+    plt.subplot(1, 2, 2)
+    plt.plot(history.history['loss'])
+    plt.title('Model loss')
+    plt.ylabel('Loss')
+    plt.xlabel('Epoch')
+    plt.legend(['Train'], loc='upper left')
+
+    plt.show()
 
 
 # clean up message
