@@ -3,13 +3,13 @@ import random
 import numpy as np
 import nltk
 import pickle
+import matplotlib.pyplot as plt
 from autocorrect import Speller
 from nltk.stem import WordNetLemmatizer
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
 from keras.optimizers import Adam
 from keras.models import load_model
-import matplotlib.pyplot as plt
 
 nltk.download("punkt")
 nltk.download("wordnet")
@@ -90,33 +90,35 @@ except:  # create new model if not existed
     model.compile(
         loss="categorical_crossentropy", optimizer=adam, metrics=["accuracy"]
     )  # compile model
-
-     # Train the model and capture the history
-    history = model.fit(training, output, epochs=1000, batch_size=10, verbose=1)  # fit model (train)
-    model.save("chatbot-model.h5")  # save model
-    print("Done")
-
-    # Print performance analysis
-
-
-    # Plot training & validation accuracy values
-    plt.figure(figsize=(12, 4))
+    history = model.fit(
+        training, output, epochs=600, batch_size=10, verbose=1
+    )  # fit model (train)
+     # Plot training stats
+    plt.figure(figsize=(12, 5))
+    
+    # Plot accuracy
     plt.subplot(1, 2, 1)
     plt.plot(history.history['accuracy'])
-    plt.title('Model accuracy')
+    plt.title('Model Accuracy')
     plt.ylabel('Accuracy')
     plt.xlabel('Epoch')
-    plt.legend(['Train'], loc='upper left')
-
-    # Plot training & validation loss values
+    plt.grid(True)
+    
+    # Plot loss
     plt.subplot(1, 2, 2)
     plt.plot(history.history['loss'])
-    plt.title('Model loss')
+    plt.title('Model Loss')
     plt.ylabel('Loss')
     plt.xlabel('Epoch')
-    plt.legend(['Train'], loc='upper left')
+    plt.grid(True)
+    
+    # Save the plots
+    plt.tight_layout()
+    plt.savefig("ChatbotWebsite/static/images/training_stats.png")
+    plt.show()  # Display the plot (optional, remove if running headless)
 
-    plt.show()
+    model.save("chatbot-model.h5")  # save model
+    print("Done")
 
 
 # clean up message
