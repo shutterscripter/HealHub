@@ -4,9 +4,13 @@
   href="{{ url_for('static', filename='styles/chat.css') }}"
 />
 <<<<<<< HEAD
+<<<<<<< HEAD
 {% endblock style %}
 
 {% block content %}
+=======
+{% endblock style %} {% block content %}
+>>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
 =======
 {% endblock style %} {% block content %}
 >>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
@@ -54,6 +58,9 @@
         data-bs-placement="bottom"
         data-bs-content="I talk about Mental Health, Addiction, Anxiety, Depression, and more."
       >
+<<<<<<< HEAD
+>>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
+=======
 >>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
         Subject
       </button>
@@ -65,6 +72,7 @@
 
   <div class="chat-area">
     <main id="main-chat" class="main-chat">
+<<<<<<< HEAD
 <<<<<<< HEAD
       {% if current_user.is_authenticated and messages %}
         {% for message in messages %}
@@ -117,6 +125,21 @@
         />
         <div class="chat-bubble">
           <div class="chat-info">
+=======
+      {% if current_user.is_authenticated and messages %} {% for message in
+      messages %} {% if message.sender == 'user' %}
+      <div class="chat right-msg">
+        <img
+          src="{% if current_user.profile_image and current_user.profile_image != 'undefined' and current_user.profile_image.strip() != '' %}
+          {{ url_for('static', filename='profile_images/' + current_user.profile_image) }}
+       {% else %}
+          {{ url_for('static', filename='profile_images/default.jpg') }}
+       {% endif %}"
+          class="chat-image"
+        />
+        <div class="chat-bubble">
+          <div class="chat-info">
+>>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
             <div class="chat-info-name">You</div>
             <div class="chat-info-time">
               {{message.timestamp.strftime('%d/%m/%Y, %H:%M')}}
@@ -152,11 +175,15 @@
         />
         <div class="chat-bubble">
           <div class="chat-info">
+<<<<<<< HEAD
+>>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
+=======
 >>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
             <div class="chat-info-name">Amica</div>
             <div class="chat-info-time">**:**</div>
           </div>
           {% if current_user.is_authenticated %}
+<<<<<<< HEAD
 <<<<<<< HEAD
             <div class="chat-text">
               Hi {{current_user.username}}, welcome back! Go ahead and send me a message. 😄
@@ -166,6 +193,8 @@
               Hello, welcome to Mental Health Chatbot! Go ahead and send me a message. 😄
             </div>
 =======
+=======
+>>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
           <div class="chat-text">
             Hi {{current_user.username}}, welcome back! Go ahead and send me a
             message. 😄
@@ -175,6 +204,9 @@
             Hello, welcome to Mental Health Chatbot! Go ahead and send me a
             message. 😄
           </div>
+<<<<<<< HEAD
+>>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
+=======
 >>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
           {% endif %}
         </div>
@@ -192,19 +224,26 @@
       <div class="tools border-top border-secondary gap-3">
         <div class="btn-group dropup">
 <<<<<<< HEAD
+<<<<<<< HEAD
           <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
 =======
+=======
+>>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
           <button
             type="button"
             class="btn btn-outline-secondary dropdown-toggle"
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
+<<<<<<< HEAD
+>>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
+=======
 >>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
             Topics📜
           </button>
           <ul class="dropdown-menu">
             {% for topic in topics.topics %}
+<<<<<<< HEAD
 <<<<<<< HEAD
               <li>
                 <button class="dropdown-item" onclick="responseTopic('{{topic.title}}')">
@@ -212,6 +251,8 @@
                 </button>
               </li>
 =======
+=======
+>>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
             <li>
               <button
                 class="dropdown-item"
@@ -220,6 +261,9 @@
                 {{topic.title}}
               </button>
             </li>
+<<<<<<< HEAD
+>>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
+=======
 >>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
             {% endfor %}
           </ul>
@@ -227,19 +271,26 @@
 
         <div class="btn-group dropup">
 <<<<<<< HEAD
+<<<<<<< HEAD
           <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
 =======
+=======
+>>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
           <button
             type="button"
             class="btn btn-outline-secondary dropdown-toggle"
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
+<<<<<<< HEAD
+>>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
+=======
 >>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
             Tests📝
           </button>
           <ul class="dropdown-menu">
             {% for test in tests.tests %}
+<<<<<<< HEAD
 <<<<<<< HEAD
               <li>
                 <button class="dropdown-item" onclick="responseTest('{{test.title}}')">
@@ -247,6 +298,8 @@
                 </button>
               </li>
 =======
+=======
+>>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
             <li>
               <button
                 class="dropdown-item"
@@ -255,6 +308,9 @@
                 {{test.title}}
               </button>
             </li>
+<<<<<<< HEAD
+>>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
+=======
 >>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
             {% endfor %}
           </ul>
@@ -262,19 +318,26 @@
 
         <div class="btn-group dropup">
 <<<<<<< HEAD
+<<<<<<< HEAD
           <button type="button" class="btn btn-outline-brown dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
 =======
+=======
+>>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
           <button
             type="button"
             class="btn btn-outline-brown dropdown-toggle"
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
+<<<<<<< HEAD
+>>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
+=======
 >>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
             Mindfulness🎧
           </button>
           <ul class="dropdown-menu">
             {% for exercise in mindfulness_exercises.mindfulness_exercises %}
+<<<<<<< HEAD
 <<<<<<< HEAD
               <li>
                 <button class="dropdown-item" onclick="responseExercise('{{exercise.title}}')">
@@ -282,6 +345,8 @@
                 </button>
               </li>
 =======
+=======
+>>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
             <li>
               <button
                 class="dropdown-item"
@@ -290,6 +355,9 @@
                 {{exercise.title}}
               </button>
             </li>
+<<<<<<< HEAD
+>>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
+=======
 >>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
             {% endfor %}
           </ul>
@@ -298,8 +366,11 @@
 
       <form id="message-form" class="chat-inputarea">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <input type="text" class="chat-input" id="textInput" autocomplete="off" placeholder="Enter your message..." />
 =======
+=======
+>>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
         <input
           type="text"
           class="chat-input"
@@ -307,6 +378,9 @@
           autocomplete="off"
           placeholder="Enter your message..."
         />
+<<<<<<< HEAD
+>>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
+=======
 >>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
         <button type="submit" class="btn btn-outline-secondary">Send</button>
       </form>
@@ -314,8 +388,13 @@
   </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   {% include "chat/send_function.html" %}
 {% endblock content %}
+=======
+  {% include "chat/send_function.html" %} {% endblock content %}
+</div>
+>>>>>>> f61febbb74d266b0a465f5d7845e1992f1fab4ca
 =======
   {% include "chat/send_function.html" %} {% endblock content %}
 </div>
