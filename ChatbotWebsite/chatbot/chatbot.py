@@ -3,6 +3,7 @@ import random
 import numpy as np
 import nltk
 import pickle
+import matplotlib.pyplot as plt
 from autocorrect import Speller
 from nltk.stem import WordNetLemmatizer
 from keras.models import Sequential
@@ -89,9 +90,33 @@ except:  # create new model if not existed
     model.compile(
         loss="categorical_crossentropy", optimizer=adam, metrics=["accuracy"]
     )  # compile model
-    model.fit(
-        training, output, epochs=300, batch_size=10, verbose=1
+    history = model.fit(
+        training, output, epochs=600, batch_size=10, verbose=1
     )  # fit model (train)
+     # Plot training stats
+    plt.figure(figsize=(12, 5))
+    
+    # Plot accuracy
+    plt.subplot(1, 2, 1)
+    plt.plot(history.history['accuracy'])
+    plt.title('Model Accuracy')
+    plt.ylabel('Accuracy')
+    plt.xlabel('Epoch')
+    plt.grid(True)
+    
+    # Plot loss
+    plt.subplot(1, 2, 2)
+    plt.plot(history.history['loss'])
+    plt.title('Model Loss')
+    plt.ylabel('Loss')
+    plt.xlabel('Epoch')
+    plt.grid(True)
+    
+    # Save the plots
+    plt.tight_layout()
+    plt.savefig("ChatbotWebsite/static/images/training_stats.png")
+    plt.show()  # Display the plot (optional, remove if running headless)
+
     model.save("chatbot-model.h5")  # save model
     print("Done")
 

@@ -39,4 +39,17 @@ def create_app(config_class=Config):
     app.register_blueprint(errors)
     app.register_blueprint(journals)
 
+    with app.app_context():
+        from ChatbotWebsite.models import User  # Import your models
+        from sqlalchemy import inspect
+        inspector = inspect(db.engine)
+        
+        # Check if 'user' table exists
+        if not inspector.has_table('user'):
+            print("Creating database tables...")
+            db.create_all()
+            print("Database tables created successfully!")
+        else:
+            print("Database tables already exist.")
+
     return app
