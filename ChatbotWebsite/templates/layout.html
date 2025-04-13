@@ -22,15 +22,12 @@
     {% block script %}{% endblock script %}
   </head>
 
-  <body style="background: linear-gradient(135deg, #f5e0c5, #d8b384); min-height: 100vh; padding-top: 35px; display: flex; flex-direction: column;">
+  <body style="background: linear-gradient(135deg, #f5e0c5, #d8b384); min-height: 100vh; padding-top: 2%; display: flex; flex-direction: column;">
 
     <!-- Navigation Bar -->
     {% block navigation %}
-    <nav
-      id="navigation-bar"
-      class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top"
-    >
-      <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+      <div class="container-fluid">
         <a class="navbar-brand fw-bold" href="{{ url_for('main.home') }}">Amica</a>
         <button
           class="navbar-toggler"
@@ -43,42 +40,46 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNavDropdown">
-          <ul class="navbar-nav gap-3">
-            <li class="nav-item">
-              <a class="nav-link {% if request.endpoint == 'chatbot.chat' %}active fw-bold text-info{% endif %}"
-                href="{{ url_for('chatbot.chat') }}">💬 Chat</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link {% if request.endpoint == 'journals.all_journals' %}active fw-bold text-info{% endif %}"
-                href="{{ url_for('journals.all_journals') }}">📓 Journal</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link {% if request.endpoint == 'main.about' %}active fw-bold text-info{% endif %}"
-                href="{{ url_for('main.about') }}">📖 About</a>
-            </li>
-          </ul>
-          <ul class="navbar-nav gap-3">
-            <li class="nav-item">
-              <a class="nav-link btn btn-danger text-white fw-bold px-3"
-                href="{{ url_for('main.sos') }}">SOS 🚨</a>
-            </li>
-            {% if current_user.is_authenticated %}
-            <li class="nav-item">
-              <a class="nav-link fw-bold" href="{{ url_for('users.account') }}">👤 Account</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('users.logout') }}">🔒 Logout</a>
-            </li>
-            {% else %}
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('users.login') }}">🔑 Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('users.register') }}">📝 Register</a>
-            </li>
-            {% endif %}
-          </ul>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <div class="d-flex flex-column flex-lg-row justify-content-between w-100">
+            <!-- Left Links -->
+            <ul class="navbar-nav gap-2">
+              <li class="nav-item">
+                <a class="nav-link {% if request.endpoint == 'chatbot.chat' %}active fw-bold text-info{% endif %}"
+                  href="{{ url_for('chatbot.chat') }}">💬 Chat</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {% if request.endpoint == 'journals.all_journals' %}active fw-bold text-info{% endif %}"
+                  href="{{ url_for('journals.all_journals') }}">📓 Journal</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {% if request.endpoint == 'main.about' %}active fw-bold text-info{% endif %}"
+                  href="{{ url_for('main.about') }}">📖 About</a>
+              </li>
+            </ul>
+            <!-- Right Links -->
+            <ul class="navbar-nav gap-2 mt-2 mt-lg-0">
+              <li class="nav-item">
+                <a class="nav-link btn btn-danger text-white fw-bold px-3"
+                  href="{{ url_for('main.sos') }}">SOS 🚨</a>
+              </li>
+              {% if current_user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link fw-bold" href="{{ url_for('users.account') }}">👤 Account</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('users.logout') }}">🔒 Logout</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('users.login') }}">🔑 Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('users.register') }}">📝 Register</a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
@@ -88,7 +89,7 @@
     {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
         {% for category, message in messages %}
-          <div class="alert alert-{{ category }} position-fixed top-0 start-50 translate-middle-x shadow mt-2">
+          <div class="alert alert-{{ category }} position-fixed top-0 start-50 translate-middle-x shadow mt-2 z-3">
             {{ message }}
           </div>
         {% endfor %}
@@ -96,13 +97,13 @@
     {% endwith %}
 
     <!-- Main Content Block -->
-    <main class="container my-5 flex-grow-1">
+    <main class="container my-5 flex-grow-1 pt-4">
       {% block content %}{% endblock content %}
     </main>
 
     <!-- Footer -->
     <footer class="bg-white text-center text-lg-start shadow-sm mt-auto">
-      <div class="text-center p-3 border-top text-muted">
+      <div class="text-center p-3 border-top text-muted small">
         © 2025 Amica Team — Jayesh, Gausoddin, Vaibhavi, Mahadev
       </div>
     </footer>
