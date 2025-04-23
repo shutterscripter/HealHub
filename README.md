@@ -34,5 +34,5 @@ python run.py
 - Conduct a mental health test
 - Mindfulness Exercises
 - Journalling for manual tracking
-- SOS Hotline
+- SOS Hotline (Only Malaysia)
 - Edit profile
