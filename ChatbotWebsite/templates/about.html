@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container-fluid py-4">
+  <h1 class="text-center fw-bold mb-5 border-bottom border-info pb-2">
+    About Us
+  </h1>
+
+  <div class="container">
+    <div class="row align-items-center mb-5">
+      <div class="col-12 col-md-6 text-center mb-4 mb-md-0">
+        <img
+          src="{{ url_for('static', filename='images/chatbot.png') }}"
+          alt="Mental Health Chatbot Picture"
+          class="rounded-circle border border-secondary shadow"
+          style="width: 18rem; height: 18rem;"
+        />
+      </div>
+      <div class="col-12 col-md-6">
+        <p>
+          Welcome to our mental health chatbot! This chatbot is designed to provide reliable information and resources to help individuals improve their mental health and wellbeing.
+        </p>
+        <hr />
+        <p>
+          We understand that seeking help for mental health concerns can be challenging, and our chatbot is designed to make the process as comfortable and accessible as possible.
+        </p>
+        <hr />
+        <p>
+          However, please remember that our chatbot is not a substitute for professional help. If you are experiencing a mental health crisis, please seek help from a mental health professional.
+        </p>
+      </div>
+    </div>
+
+    <div class="row gy-4">
+      <div class="col-12 col-md-6">
+        <h2 class="fw-semibold">Our Mission</h2>
+        <p>
+          We believe that education and awareness are critical components of mental health. Our chatbot aims to provide accurate and up-to-date information on various mental health conditions, including symptoms, causes, and effects.
+        </p>
+        <p>
+          We also offer a variety of resources, such as mental health tests and mindfulness exercises, to help you evaluate your mental health and enhance your wellbeing.
+        </p>
+      </div>
+
+      <div class="col-12 col-md-6">
+        <h2 class="fw-semibold">Our Team</h2>
+        <p>
+          This chatbot was developed by a dedicated student who is passionate about mental health. The developer is committed to breaking down the stigma surrounding mental health and creating a supportive environment for individuals to seek help.
+        </p>
+        <p>
+          Thank you for choosing our mental health chatbot as your first step toward a healthier and happier life. We are here to support you every step of the way!
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
