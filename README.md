@@ -13,7 +13,7 @@
 ## Installation
 
 ```
-git clone
+git clone https://github.com/shutterscripter/HealHub.git
 ```
 
 ```
